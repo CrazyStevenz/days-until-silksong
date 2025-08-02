@@ -1,0 +1,35 @@
+{
+  "name": "days-until-skong",
+  "version": "0.1.0",
+  "description": "This fan-site isn't affiliated with or endorsed by Team Cherry in any way.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrazyStevenz/days-until-skong.git"
+  },
+  "author": "CrazyStevenz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CrazyStevenz/days-until-skong/issues"
+  },
+  "homepage": "https://github.com/CrazyStevenz/days-until-skong#readme",
+  "devDependencies": {
+    "@babel/core": "^7.17.2",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/plugin-syntax-top-level-await": "^7.14.5",
+    "eslint": "^7.18.0",
+    "eslint-plugin-html": "^6.1.2",
+    "standardx": "^7.0.0"
+  },
+  "eslintConfig": {
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module"
+    },
+    "plugins": ["html"]
+  }
+}

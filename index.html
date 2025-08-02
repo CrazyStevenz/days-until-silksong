@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Days until Elden Ring release</title>
+    <link rel="shortcut icon" type="image/png" href="resources/fav.png" />
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/slider.css">
+    <link rel="stylesheet" href="styles/checkbox.css">
+    <link rel="stylesheet" href="styles/button.css">
+    <link rel="stylesheet" href="styles/select.css">
+    <link rel="stylesheet" href="styles/input.css">
+    <link rel="stylesheet" href="styles/radio.css">
+</head>
+
+<body style="background-color: black;">
+    <div id="app">
+        <canvas id="sparks" v-show="settings.sparksPlaying"></canvas>
+        <div class="content" :style="{ backgroundColor: `rgba(0,0,0,${1 - contentOpacity})` }">
+            <div class="center mainText" :style="textStyle">
+                <h1>
+                    <span v-if="!secondsRemaining()" class="multiply-bg" style="filter: brightness(20) drop-shadow(1px 1px 1px gray)">{{
+                            (countdown.days > 0) ? 'days until'
+                                    : (countdown.hours > 0) ? 'hours until'
+                                    : 'minutes until'
+                        }}<br></span>
+                    <picture v-if="!secondsRemaining() || distance() < 0" style="pointer-events: none;">
+                        <!-- <source srcset="resources/logo.avif" type="image/avif"> -->
+                        <img src="resources/silksong-logo.png" alt="logo" style="filter: invert(1); max-width: 500px">
+                    </picture><br>
+                    <span v-if="!secondsRemaining()" class="multiply-bg" style="filter: brightness(20) drop-shadow(1px 1px 1px gray)">release<br></span>
+                    <span v-else-if="distance() < 0" class="multiply-bg" style="font-size: 100px"><br>has officially been released</span>
+                    <div :key="countdownUpdate" class="multiply-bg countdownText" style="filter: brightness(20) drop-shadow(1px 1px 1px gray)">
+                        <span class="nowrap" v-if="distance() >= 24 * 3600 * 1000">{{ formatValue(countdown.days, 'day') }}</span>
+                        <span class="nowrap" v-if="distance() >= 3600 * 1000 && countdown.hours > 0">{{ formatValue(countdown.hours, 'hour') }}</span>
+                        <span class="nowrap" v-if="distance() >= 60 * 1000 && countdown.minutes > 0">{{ formatValue(countdown.minutes, 'minute') }}</span>
+                        <span class="nowrap" v-if="distance() >= 60 * 1000">{{ formatValue(countdown.seconds, 'second') }}</span>
+                        <span class="nowrap" v-else-if="distance() >= 0  && distance() <= 60 * 1000" style="font-size: 70px">{{ countdown.seconds }}</span>
+                    </div>
+                </h1>
+            </div>
+            <div class="multiply-bg toast" :style="toastStyle">
+                {{ toastMessage }}
+            </div>
+        </div>
+
+        <div class="hidden-bar" :style="{ display: hiddenBarVisible ? 'block' : 'none',
+        padding: settings.bigTaskbar ? '30px' : '15px', width: settings.bigTaskbar ? '96%' : '97%',
+        opacity: textStyle.opacity, filter: textStyle.filter, bottom: settings.topBar === 'true' ? '' : '0' }">
+            <button class="multiply-bg hidden-bar-separator">*</button>
+            <button class="multiply-bg hidden-bar-button" @click="settingsClick">settings</button>
+            <button class="multiply-bg hidden-bar-separator">*</button>
+            <button class="multiply-bg hidden-bar-button"
+                @click="iframeClick('https://www.youtube-nocookie.com/embed/Z_fmEDsQPh4')">trailer</button>
+            <button class="multiply-bg hidden-bar-separator">*</button>
+        </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js'
+        integrity='sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g=='
+        crossorigin='anonymous'></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'></script>
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>
