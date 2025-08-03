@@ -4,6 +4,7 @@
 }
 
 * {
+	color: white;
 	font-weight: normal;
 }
 
@@ -25,16 +26,16 @@ h2 {
 	margin-bottom: 1rem;
 }
 
-/* Chrome, Safari, Edge, Opera */
+/* Disables Chrome, Safari, Edge, Opera spinner */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
 
-/* Firefox */
+/* Disables Firefox spinner */
 input[type="number"] {
-	-moz-appearance: textfield;
+	appearance: textfield;
 }
 
 iframe {
@@ -116,33 +117,24 @@ iframe {
 .mainText {
 	padding-top: 20px;
 	padding-bottom: 20px;
-	color: #e6c98e;
 	font-family: Mantinia, serif;
 	text-align: center;
 	opacity: 0;
 }
 
 .multiply-bg {
-	color: white;
-	filter: drop-shadow(1px 1px 1px gray);
 	-webkit-background-clip: text;
 }
 
 .settings-h2 {
 	text-align: center;
 	font-weight: bold;
-	color: white;
 }
 
 .settings-h3 {
 	text-align: center;
 	font-weight: bold;
-	color: white;
 	font-size: 1.17em;
-}
-
-.settings-label {
-	color: white;
 }
 
 .settings-menu {
@@ -150,7 +142,6 @@ iframe {
 		-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
 		Cantarell, Helvetica, Arial, sans-serif, "Apple Color Emoji",
 		"Segoe UI Emoji", "Segoe UI Symbol";
-	color: white;
 	user-select: none;
 }
 

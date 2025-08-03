@@ -180,7 +180,7 @@ import {
 					this.settings.dropShadowColor = "black";
 					this.settings.dropShadowX = 2;
 					this.settings.dropShadowY = 2;
-					this.settings.dropShadowBlur = 3;
+					this.settings.dropShadowBlur = 8;
 				}
 			},
 			countdownLoop() {

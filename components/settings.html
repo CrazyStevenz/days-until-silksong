@@ -25,19 +25,15 @@
 		<div class="settings-menu-item">
 			<label class="pure-material-slider">
 				<input type="range" min="-35" max="-5" v-model="settings.sparksTick" />
-				<span class="settings-label">Amount:</span>
-				<label id="sparksTickValue" class="settings-label"
-					>{{ formattedSparksTick }}</label
-				>
+				<span>Amount:</span>
+				<label id="sparksTickValue">{{ formattedSparksTick }}</label>
 			</label>
 		</div>
 		<div class="settings-menu-item">
 			<label class="pure-material-slider">
 				<input type="range" min="-64" max="-8" v-model="settings.sparksSpeed" />
-				<span class="settings-label">Speed:</span>
-				<label id="sparksSpeedValue" class="settings-label"
-					>{{ formattedSparksSpeed }}</label
-				>
+				<span>Speed:</span>
+				<label id="sparksSpeedValue">{{ formattedSparksSpeed }}</label>
 			</label>
 		</div>
 		<h3 class="settings-h3">Music</h3>
@@ -51,23 +47,21 @@
 		<div class="settings-menu-item">
 			<label class="pure-material-slider">
 				<input type="range" min="0" max="100" v-model="settings.volume" />
-				<span class="settings-label">Volume:</span>
-				<label id="volumeValue" class="settings-label"
-					>{{ settings.volume + '%' }}</label
-				>
+				<span>Volume:</span>
+				<label id="volumeValue">{{ settings.volume + '%' }}</label>
 			</label>
 		</div>
 		<h3 class="settings-h3">Misc</h3>
 		<div class="settings-menu-item" v-if="!isTouch">
 			<label class="pure-material-checkbox">
 				<input type="checkbox" v-model="settings.bigTaskbar" />
-				<span class="settings-label">Bold taskbar (Raises bar height)</span>
+				<span>Bold taskbar (Raises bar height)</span>
 			</label>
 		</div>
 		<div class="settings-menu-item" v-if="!isTouch">
 			<label class="pure-material-checkbox">
 				<input type="checkbox" v-model="settings.hiddenBar" />
-				<span class="settings-label">Hidden bar (Toggle by pressing ESC)</span>
+				<span>Hidden bar (Toggle by pressing ESC)</span>
 			</label>
 		</div>
 		<div class="settings-menu-item">

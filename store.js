@@ -13,7 +13,7 @@ export default {
 	lastFrameTime: 0,
 	textStyle: {
 		opacity: 0,
-		filter: "brightness(1.25) drop-shadow(black 2px 2px 3px)",
+		filter: "brightness(1.25) drop-shadow(black 2px 2px 8px)",
 	},
 	menuVisible: true,
 	musicPlayer: null,
@@ -24,7 +24,7 @@ export default {
 		bigTaskbar: false,
 		hiddenBar: true,
 		dropShadow: false,
-		dropShadowBlur: "3",
+		dropShadowBlur: "8",
 		textBrightness: "1.25",
 		topBar: "false",
 		dropShadowColor: "black",
