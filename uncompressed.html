@@ -1,4 +1,5 @@
-<body onload="
+<body
+	onload="
 let savedSettings = JSON.parse(window.localStorage.getItem('settings'))
 
 if (savedSettings && savedSettings.uncompressedImages === false) {
@@ -34,4 +35,5 @@ window.localStorage.setItem('settings', savedSettings)
 }
 
 window.open('https://daysuntileldenringrelease.netlify.app/', '_self')
-">
+"
+></body>
