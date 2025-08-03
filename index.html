@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="styles/radio.css" />
 	</head>
 
-	<body style="background-color: black">
+	<body>
 		<div id="app">
 			<canvas id="sparks" v-show="settings.sparksPlaying"></canvas>
 			<div
@@ -31,7 +31,6 @@
 							v-if="!secondsRemaining() || distance() < 0"
 							style="pointer-events: none"
 						>
-							<!-- <source srcset="resources/logo.avif" type="image/avif"> -->
 							<img
 								src="resources/silksong-logo.png"
 								alt="logo"

@@ -35,7 +35,6 @@ export default {
 		sparksPlaying: false,
 		sparksSpeed: -36,
 		sparksTick: -20,
-		uncompressedImages: false,
 		volume: 25,
 		console: "",
 	},

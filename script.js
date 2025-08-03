@@ -146,9 +146,6 @@ import {
 			"settings.music"() {
 				this.updateMusic();
 			},
-			"settings.uncompressedImages"() {
-				this.updateBackground();
-			},
 			countdownUpdate() {
 				this.countdown = {
 					days: Math.floor(this.distance() / (1000 * 60 * 60 * 24)),
@@ -428,7 +425,6 @@ import {
 			async updateBackground() {
 				if (!this.settings.backgroundImage) return;
 
-				const uncompressed = this.settings.uncompressedImages ? "-u" : "";
 				const url = "resources/backgrounds/" + rand(1, 6) + ".webp";
 
 				await window
