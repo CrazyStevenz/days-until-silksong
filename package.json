@@ -1,7 +1,7 @@
 {
 	"name": "days-until-skong",
 	"version": "0.1.0",
-	"description": "This fan-site isn't affiliated with or endorsed by Team Cherry in any way.",
+	"description": "Countdown to the Hollow Knight: Silksong release date. This fan-site isn't affiliated with or endorsed by Team Cherry in any way.",
 	"main": "script.js",
 	"scripts": {
 		"format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,css,mdx}\" --cache",
