@@ -122,9 +122,9 @@ iframe {
 }
 
 .multiply-bg {
-  background-image: url(../resources/dirt.jpg);
+  color: white;
+  filter: drop-shadow(1px 1px 1px gray);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .settings-h2 {
