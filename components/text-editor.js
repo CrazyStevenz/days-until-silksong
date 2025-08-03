@@ -1,62 +1,62 @@
-import store from '../store.js'
+import store from "../store.js";
 
 // Load and parse HTML
-export const html = await window.fetch('components/text-editor.html')
-  .then(res => res.text())
-  .then(res => {
-    const html = document.createElement('body')
-    html.innerHTML = res
-    return html.querySelector('template').innerHTML
-  })
+export const html = await window
+	.fetch("components/text-editor.html")
+	.then((res) => res.text())
+	.then((res) => {
+		const html = document.createElement("body");
+		html.innerHTML = res;
+		return html.querySelector("template").innerHTML;
+	});
 
 // Declare component
 const SwalPopup = window.Vue.extend({
-  template: html,
-  data () {
-    return {
-      ...store,
-      maxTextOpacity: store.settings.maxTextOpacity,
-      dropShadowBlur: store.settings.dropShadowBlur
-    }
-  },
-  methods: {
-    applyTextStylePreset (defaultPreset) {
-      window.app.applyTextStylePreset(defaultPreset)
-      this.maxTextOpacity = this.settings.maxTextOpacity
-      this.dropShadowBlur = this.settings.dropShadowBlur
-    },
-    normalizeMinMax (event) {
+	template: html,
+	data() {
+		return {
+			...store,
+			maxTextOpacity: store.settings.maxTextOpacity,
+			dropShadowBlur: store.settings.dropShadowBlur,
+		};
+	},
+	methods: {
+		applyTextStylePreset(defaultPreset) {
+			window.app.applyTextStylePreset(defaultPreset);
+			this.maxTextOpacity = this.settings.maxTextOpacity;
+			this.dropShadowBlur = this.settings.dropShadowBlur;
+		},
+		normalizeMinMax(event) {
+			if (["Backspace", "Delete", "Period", "Comma"].includes(event.code)) {
+				return false;
+			}
 
-      if (['Backspace','Delete','Period','Comma'].includes(event.code)) {
-        return false
-      }
+			const el = event.target;
+			if (el.value !== "") {
+				if (parseFloat(el.value) < parseFloat(el.min)) {
+					el.value = el.min;
+				}
+				if (parseFloat(el.value) > parseFloat(el.max)) {
+					el.value = el.max;
+				}
+			}
 
-      const el = event.target
-      if (el.value !== '') {
-        if (parseFloat(el.value) < parseFloat(el.min)) {
-          el.value = el.min
-        }
-        if (parseFloat(el.value) > parseFloat(el.max)) {
-          el.value = el.max
-        }
-      }
-
-      return true
-    },
-    setMaxTextOpacity (event) {
-      const isNormal = this.normalizeMinMax(event)
-      if (isNormal) {
-        this.settings.maxTextOpacity = event.target.value
-      }
-    },
-    setDropShadowBlur (event) {
-      const isNormal = this.normalizeMinMax(event)
-      if (isNormal) {
-        this.settings.dropShadowBlur = event.target.value
-      }
-    }
-  }
-})
+			return true;
+		},
+		setMaxTextOpacity(event) {
+			const isNormal = this.normalizeMinMax(event);
+			if (isNormal) {
+				this.settings.maxTextOpacity = event.target.value;
+			}
+		},
+		setDropShadowBlur(event) {
+			const isNormal = this.normalizeMinMax(event);
+			if (isNormal) {
+				this.settings.dropShadowBlur = event.target.value;
+			}
+		},
+	},
+});
 
 // Render component on #swal
-export const mountSwal = () => new SwalPopup().$mount('#swal-editor')
+export const mountSwal = () => new SwalPopup().$mount("#swal-editor");
